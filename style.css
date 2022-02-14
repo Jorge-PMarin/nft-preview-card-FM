@@ -26,24 +26,60 @@ body {
   align-items: center;
 }
 
+a {
+  cursor: pointer;
+  color: var(--white);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--cyan);
+}
+
 .card {
   background-color: var(--very-dark-blue-card);
   font-weight: 300;
   color: var(--soft-blue);
   padding: 2.4rem;
   width: 88%;
+  max-width: 33rem;
   border-radius: 1.5rem;
 }
 
-.card__img {
-  max-width: 100%;
+.card__link {
+  display: block;
+  position: relative;
   border-radius: 1rem;
+  overflow: hidden;
   margin-bottom: 2rem;
 }
 
+.card__link::before {
+  content: '';
+  background: url(./images/icon-view.svg) center no-repeat #fff;
+  z-index: 999;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-color: hsla(178, 100%, 50%, 0.432);
+}
+
+.card__link:hover::before {
+  opacity: 1;
+}
+
+.card__img {
+  display: block;
+  max-width: 100%;
+}
+
 .card__text {
-    border-bottom: 0.1rem solid var(--very-dark-blue-line);
-    margin-bottom: 1.8rem;
+  border-bottom: 0.1rem solid var(--very-dark-blue-line);
+  margin-bottom: 1.8rem;
 }
 
 .card__title {
@@ -73,27 +109,37 @@ body {
 }
 
 .card__small.left {
-    color: var(--cyan);
+  color: var(--cyan);
 }
 
 .card__small img {
-    margin-right: 0.6rem;
+  margin-right: 0.6rem;
 }
 
 .card__creator {
-    display: flex;
-    align-items: center;
-    font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
 }
 
 .card__creator img {
-    max-width: 3.5rem;
-    border: 1px solid var(--white);
-    border-radius: 10rem;
-    margin-right: 1.5rem;
+  max-width: 3.5rem;
+  border: 1px solid var(--white);
+  border-radius: 10rem;
+  margin-right: 1.5rem;
 }
 
 .card__creator b {
-    color: var(--white);
-    font-weight: 300;
+  color: var(--white);
+  font-weight: 300;
+}
+
+.card__creator b,
+.card__title .card__img {
+  cursor: pointer;
+}
+
+.card__creator b:hover,
+.card__title:hover {
+  color: var(--cyan);
 }
